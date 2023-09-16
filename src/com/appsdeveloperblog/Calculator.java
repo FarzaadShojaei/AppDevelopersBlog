@@ -7,4 +7,8 @@ public class Calculator {
         return dividend*divisior;
     }
 
+    public int integerSubtraction(int minuend,int subtrahend){
+       return minuend-subtrahend;
+    }
+
 }
