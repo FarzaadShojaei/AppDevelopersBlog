@@ -11,10 +11,15 @@ class CalculatorTest {
     @DisplayName("Test 4/2=2")
     @Test
     void testIntegerDivision_WhenFourIsDividedByTwo_ShouldReturnTwo() {
-
+    //Arrange  //Given
         Calculator calculator=new Calculator();
-      int result=  calculator.integerDivision(4,2);
-      assertEquals(8,result,"4/2 did of produce 2");
+        int dividend=4;
+        int divisor=2;
+        int expectedResult=2;
+
+
+      int actualResult=  calculator.integerDivision(dividend,divisor);
+      assertEquals(8,actualResult,"4/2 did of produce 2");
 
     }
     @DisplayName("Division By Zero")
