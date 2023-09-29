@@ -2,6 +2,7 @@ package com.appsdeveloperblog;
 
 import org.junit.jupiter.api.*;
 
+import static com.sun.tools.javac.file.JavacFileManager.getMessage;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Test Math operations in Calculator Class")
@@ -43,12 +44,27 @@ class CalculatorTest {
       assertEquals(8,actualResult,"4/2 did of produce 2");
 
     }
+    @Disabled("TODO: Still Need To work On IT")
     @DisplayName("Division By Zero")
     @Test
     void testIntegerDivision_WhenDividendIsDividedByZero_ShouldThrowArithmeticException(){
         System.out.println("Running Division By Zero");
-    fail("Not Implemented Yet");
+    int dividend=4;
+    int divisor=0;
+
+    String expectedExceptionMessage="/ by Zero";
+
+    //Act & Assert
+        ArithmeticException actualException=assertThrows(ArithmeticException.class,()->{
+
+calculator.integerDivision(dividend,divisor);
+        },"Division by Zero should have " );
+
+        //Assert
+        assertEquals(expectedExceptionMessage,actualException.getMessage(),"Unexpected exception Message");
     }
+
+
 
     @DisplayName("Test 33-1=32")
     @Test
@@ -62,4 +78,5 @@ class CalculatorTest {
        assertEquals(expectedResult,actualResult,()->minuend+ "-" + subtrahend + "Did not Produce"+ expectedResult);
 
     }
+
 }
