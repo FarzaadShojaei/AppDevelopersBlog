@@ -1,6 +1,12 @@
 package com.appsdeveloperblog;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static com.sun.tools.javac.file.JavacFileManager.getMessage;
 import static org.junit.jupiter.api.Assertions.*;
@@ -67,16 +73,33 @@ calculator.integerDivision(dividend,divisor);
 
 
     @DisplayName("Test 33-1=32")
-    @Test
-    void integerSubtraction(){
+    @ParameterizedTest
+            // @MethodSource("IntegerSubtractionInputParameters")
+   // @Test
+    @CsvSource({
+
+
+            "33","1","32",
+            "24","1","23",
+            "54","1","53"
+    })
+    void integerSubtraction(int minuend,int subtrahend,int expectedResult){
         Calculator calculator=new Calculator();
-       int minuend=33;
-       int subtrahend=1;
-       int expectedResult=32;
+
 
        int actualResult=calculator.integerSubtraction(minuend,subtrahend);
        assertEquals(expectedResult,actualResult,()->minuend+ "-" + subtrahend + "Did not Produce"+ expectedResult);
 
     }
+  //  private static Stream<Arguments> IntegerSubtractionInputParameters(){
+     //   return Stream.of(
+       //     Arguments.of(33,1,32),
+        //        Arguments.of(54,1,53),
+         //       Arguments.of(24,1,23)
+
+
+
+            //    );
+  //  }
 
 }
