@@ -3,6 +3,7 @@ package com.appsdeveloperblog;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -83,7 +84,7 @@ calculator.integerDivision(dividend,divisor);
    //         "24","1","23",
    //         "54","1","53"
    // })
-
+    @CsvFileSource(resources = "/integerSubtraction.csv")
     void integerSubtraction(int minuend,int subtrahend,int expectedResult){
         Calculator calculator=new Calculator();
 
