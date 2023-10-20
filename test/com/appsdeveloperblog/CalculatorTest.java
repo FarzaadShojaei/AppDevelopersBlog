@@ -56,15 +56,15 @@ class CalculatorTest {
     @Test
     void testIntegerDivision_WhenDividendIsDividedByZero_ShouldThrowArithmeticException(){
         System.out.println("Running Division By Zero");
-    int dividend=4;
-    int divisor=0;
+        int dividend=4;
+        int divisor=0;
 
-    String expectedExceptionMessage="/ by Zero";
+        String expectedExceptionMessage="/ by Zero";
 
-    //Act & Assert
+        //Act & Assert
         ArithmeticException actualException=assertThrows(ArithmeticException.class,()->{
 
-calculator.integerDivision(dividend,divisor);
+            calculator.integerDivision(dividend,divisor);
         },"Division by Zero should have " );
 
         //Assert
